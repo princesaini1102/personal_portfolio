@@ -1,36 +1,180 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio - Prince Saini
 
-## Getting Started
+A modern, responsive personal portfolio website built with Next.js, showcasing my skills, experience, and projects as a Full Stack Developer.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+[View Portfolio](https://your-portfolio-url.com) *(Add your deployed URL here)*
+
+## ✨ Features
+
+- **Modern Design**: Clean and professional UI with smooth animations
+- **Responsive Layout**: Optimized for all devices and screen sizes
+- **Interactive Components**: Engaging user experience with Framer Motion animations
+- **Contact Form**: Functional contact form with email integration using Resend
+- **Dark/Light Theme**: Theme switching capability with styled-components
+- **SEO Optimized**: Built with Next.js for optimal search engine performance
+- **TypeScript**: Full type safety throughout the application
+- **Database Integration**: Prisma ORM for data management
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js 15** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first CSS framework
+- **Styled Components** - CSS-in-JS styling
+- **Framer Motion** - Animation library
+- **Lucide React** - Icon library
+
+### Backend & Database
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **Prisma** - Database ORM
+- **MySQL** - Database
+
+### Development Tools
+- **ESLint** - Code linting
+- **PostCSS** - CSS processing
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
+- **Resend** - Email service
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                 # Next.js App Router
+│   ├── api/            # API routes
+│   ├── globals.css     # Global styles
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Home page
+├── components/         # React components
+│   ├── Header.tsx      # Navigation header
+│   ├── Hero.tsx        # Hero section
+│   ├── About.tsx       # About section
+│   ├── Skills.tsx      # Skills showcase
+│   ├── Experience.tsx  # Work experience
+│   ├── Projects.tsx    # Portfolio projects
+│   ├── Contact.tsx     # Contact form
+│   └── Footer.tsx      # Footer
+├── constants/          # Data constants
+│   ├── about.ts        # Personal information
+│   ├── skills.ts       # Skills data
+│   ├── projects.ts     # Projects data
+│   └── experience.ts   # Experience data
+├── lib/               # Utility libraries
+│   ├── prisma.ts      # Database client
+│   └── ThemeContext.tsx # Theme management
+└── types/             # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+- MySQL database (for full functionality)
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/personal-portfolio.git
+   cd personal-portfolio
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Set up environment variables**
+   Create a `.env.local` file in the root directory:
+   ```env
+   DATABASE_URL="mysql://username:password@localhost:3306/portfolio"
+   RESEND_API_KEY="your_resend_api_key"
+   ```
 
-## Deploy on Vercel
+4. **Set up the database**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+6. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🎨 Customization
+
+### Personal Information
+Update your personal details in `src/constants/about.ts`:
+- Name, role, location
+- Profile image
+- Social media links
+- Professional summary
+
+### Projects
+Add your projects in `src/constants/projects.ts`:
+- Project title and description
+- Live demo and GitHub links
+- Technology tags
+- Featured project status
+
+### Skills
+Modify your skills in `src/constants/skills.ts`:
+- Skill categories (Frontend, Backend, Database, etc.)
+- Proficiency levels
+- Custom icons
+
+## 🌟 Featured Projects
+
+1. **School Management System** - Comprehensive educational platform
+2. **Online Doctor Appointment Platform** - Healthcare booking system
+3. **CloudPlay Solutions Website** - Corporate website with SEO optimization
+4. **Pentagon CAD/CAM Centre** - Professional service website
+
+## 📧 Contact
+
+- **Email**: princesaini2604@gmail.com
+- **LinkedIn**: [Prince Saini](https://www.linkedin.com/in/prince-saini-306653172/)
+- **GitHub**: [princesaini1102](https://github.com/princesaini1102)
+- **HackerRank**: [princesaini2604](https://www.hackerrank.com/profile/princesaini2604)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+**Built with ❤️ by Prince Saini**
