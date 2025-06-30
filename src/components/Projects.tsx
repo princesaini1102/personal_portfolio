@@ -103,28 +103,28 @@ const FilterContainer = styled(motion.div)`
   }
 `;
 
-const FilterButton = styled(motion.button)<{ active: boolean }>`
+const FilterButton = styled(motion.button)<{ $active: boolean }>`
   padding: 0.75rem 1.5rem;
-  border: 2px solid ${({ theme, active }) => 
-    active ? theme.colors.primary : theme.colors.border};
-  background: ${({ theme, active }) => 
-    active ? theme.colors.primary : 'transparent'};
-  color: ${({ theme, active }) => 
-    active ? 'white' : theme.colors.text};
+  border: 2px solid ${({ theme, $active }) => 
+    $active ? theme.colors.primary : theme.colors.border};
+  background: ${({ theme, $active }) => 
+    $active ? theme.colors.primary : 'transparent'};
+  color: ${({ theme, $active }) => 
+    $active ? 'white' : theme.colors.text};
   border-radius: 25px;
   cursor: pointer;
-  font-weight: ${({ active }) => active ? '600' : '500'};
+  font-weight: ${({ $active }) => $active ? '600' : '500'};
   transition: all 0.3s ease;
   position: relative;
   
   &:hover {
-    background: ${({ theme, active }) => 
-      active ? theme.colors.primary : theme.colors.surface};
+    background: ${({ theme, $active }) => 
+      $active ? theme.colors.primary : theme.colors.surface};
     transform: translateY(-2px);
-    box-shadow: ${({ active }) => active ? '0 4px 12px rgba(0, 0, 0, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.1)'};
+    box-shadow: ${({ $active }) => $active ? '0 4px 12px rgba(0, 0, 0, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.1)'};
   }
   
-  ${({ active, theme }) => active && `
+  ${({ $active, theme }) => $active && `
     box-shadow: 0 4px 12px ${theme.colors.primary}40;
   `}
 `;
@@ -323,7 +323,7 @@ export const Projects: React.FC = () => {
           {allTags.map((filter, index) => (
             <FilterButton
               key={filter}
-              active={activeFilter === filter}
+              $active={activeFilter === filter}
               onClick={() => setActiveFilter(filter)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

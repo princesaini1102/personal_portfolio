@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
-import { Resend } from 'resend';
-
-
+import axios from 'axios';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -13,7 +11,6 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body = await request.json();
     
@@ -30,29 +27,19 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Send email notification
+    // Send email using EmailJS REST API
     try {
-      await resend.emails.send({
-        from: 'Portfolio Contact <noreply@yourdomain.com>', // Update this with your verified domain
-        to: ['princesaini2604@gmail.com'], // Your email address
-        subject: `New Contact Form Submission: ${validatedData.subject}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333;">New Contact Form Submission</h2>
-            <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <p><strong>Name:</strong> ${validatedData.name}</p>
-              <p><strong>Email:</strong> ${validatedData.email}</p>
-              <p><strong>Subject:</strong> ${validatedData.subject}</p>
-              <p><strong>Message:</strong></p>
-              <div style="background: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
-                ${validatedData.message.replace(/\n/g, '<br>')}
-              </div>
-            </div>
-            <p style="color: #666; font-size: 14px;">
-              This message was sent from your portfolio contact form on ${new Date().toLocaleDateString()}.
-            </p>
-          </div>
-        `,
+      await axios.post('https://api.emailjs.com/api/v1.0/email/send', {
+        service_id: process.env.EMAILJS_SERVICE_ID,
+        template_id: process.env.EMAILJS_TEMPLATE_ID,
+        user_id: process.env.EMAILJS_PUBLIC_KEY, // or use private key for backend
+        template_params: {
+          from_name: validatedData.name,
+          from_email: validatedData.email,
+          subject: validatedData.subject,
+          message: validatedData.message,
+        },
+        accessToken: process.env.EMAILJS_PRIVATE_KEY, // for backend security
       });
     } catch (emailError) {
       console.error('Email sending failed:', emailError);

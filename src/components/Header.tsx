@@ -41,7 +41,7 @@ const Logo = styled(motion.div)`
   background-clip: text;
 `;
 
-const NavLinks = styled.div<{ isOpen: boolean }>`
+const NavLinks = styled.div<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -55,10 +55,10 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
     border-top: 1px solid ${({ theme }) => theme.colors.border};
     flex-direction: column;
     padding: 2rem;
-    transform: ${({ isOpen }) => isOpen ? 'translateY(0)' : 'translateY(-100%)'};
-    opacity: ${({ isOpen }) => isOpen ? 1 : 0};
+    transform: ${({ $isOpen }) => $isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+    opacity: ${({ $isOpen }) =>  $isOpen ? 1 : 0};
     transition: all 0.3s ease;
-    pointer-events: ${({ isOpen }) => isOpen ? 'auto' : 'none'};
+    pointer-events: ${({ $isOpen }) => $isOpen ? 'auto' : 'none'};
   }
 `;
 
@@ -137,7 +137,7 @@ export const Header: React.FC = () => {
           Prince Saini
         </Logo>
 
-        <NavLinks isOpen={isMenuOpen}>
+        <NavLinks $isOpen={isMenuOpen}>
           {navItems.map((item, index) => (
             <NavLink
               key={item.href}

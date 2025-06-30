@@ -157,12 +157,11 @@ const SkillLevel = styled.div`
   gap: 0.25rem;
 `;
 
-const LevelDot = styled.div<{ filled: boolean }>`
+const LevelDot = styled.div<{ $filled: boolean }>`
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: ${({ filled, theme }) => 
-    filled ? theme.colors.primary : theme.colors.border};
+  background: ${({ $filled, theme }) => $filled ? theme.colors.primary : theme.colors.border};
 `;
 
 const getCategorySkills = (category: string) => {
@@ -244,7 +243,7 @@ export const Skills: React.FC = () => {
                       <SkillName>{skill.name}</SkillName>
                       <SkillLevel>
                         {Array.from({ length: 5 }, (_, i) => (
-                          <LevelDot key={i} filled={i < skill.level} />
+                          <LevelDot key={i} $filled={i < skill.level} />
                         ))}
                       </SkillLevel>
                     </SkillInfo>
