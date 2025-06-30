@@ -170,20 +170,7 @@ const CTAButton = styled(motion.button)`
   }
 `;
 
-const ScrollText = styled.span`
-  color: ${({ theme }) => theme.colors.background};
-  font-size: 0.9rem;
-  font-weight: 500;
-`;
-
 export const Hero: React.FC = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.querySelector('#about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <HeroSection id="home">
       <BackgroundGradient />
@@ -215,7 +202,7 @@ export const Hero: React.FC = () => {
           animate="animate"
           variants={fadeInUp}
         >
-          👋 Hello, I'm
+          👋 Hello, I&apos;m
         </Greeting>
         
         <Name

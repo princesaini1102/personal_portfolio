@@ -3,9 +3,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Building } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { experienceData } from '@/constants/experience';
 import { fadeInUp, staggerContainer } from '@/animations/animations';
+import Image from 'next/image';
 
 const ExperienceSection = styled.section`
   padding: 6rem 2rem;
@@ -253,7 +254,7 @@ export const Experience: React.FC = () => {
               <CardHeader>
                 <CompanyLogo>
                   {experience.logoUrl ? (
-                    <img src={experience.logoUrl} alt={experience.company} />
+                    <Image src={experience.logoUrl} alt={experience.company} width={40} height={40} style={{ objectFit: 'contain' }} />
                   ) : (
                     experience.company.split(' ').map(word => word[0]).join('')
                   )}
@@ -288,4 +289,4 @@ export const Experience: React.FC = () => {
       </Container>
     </ExperienceSection>
   );
-}; 
+};

@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -13,6 +13,7 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body = await request.json();
     

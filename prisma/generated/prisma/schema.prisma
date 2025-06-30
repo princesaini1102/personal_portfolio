@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  liveLink    String?
+  githubLink  String?
+  imageUrl    String?
+  tags        String // Comma-separated tags
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Skill {
+  id       String  @id @default(cuid())
+  name     String
+  category String // Frontend, Backend, Database, Version Control
+  icon     String?
+  level    Int     @default(1) // 1-5 scale
+  order    Int     @default(0)
+}
+
+model WorkExperience {
+  id          String   @id @default(cuid())
+  company     String
+  position    String
+  startDate   String
+  endDate     String?
+  current     Boolean  @default(false)
+  description String
+  logoUrl     String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  createdAt DateTime @default(now())
+}

@@ -312,7 +312,7 @@ export const Contact: React.FC = () => {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -360,7 +360,7 @@ export const Contact: React.FC = () => {
           variants={fadeInUp}
           transition={{ delay: 0.1 }}
         >
-          Let's work together on your next project
+          Let&apos;s work together on your next project
         </SectionSubheading>
         
         <ContactContent
@@ -371,9 +371,9 @@ export const Contact: React.FC = () => {
         >
           <ContactInfo>
             <motion.div variants={fadeInUp}>
-              <ContactInfoTitle>Let's Connect</ContactInfoTitle>
+              <ContactInfoTitle>Let&apos;s Connect</ContactInfoTitle>
               <ContactInfoText>
-                I'm always interested in new opportunities and exciting projects. 
+                I&apos;m always interested in new opportunities and exciting projects. 
                 Whether you have a question or just want to say hi, feel free to reach out!
               </ContactInfoText>
             </motion.div>
@@ -444,7 +444,7 @@ export const Contact: React.FC = () => {
                   id="subject"
                   {...register('subject')}
                   hasError={!!errors.subject}
-                  placeholder="What's this about?"
+                  placeholder="What&apos;s this about?"
                 />
                 {errors.subject && <ErrorMessage>{errors.subject.message}</ErrorMessage>}
               </FormGroup>
@@ -488,7 +488,7 @@ export const Contact: React.FC = () => {
           exit={{ opacity: 0, x: 300 }}
         >
           <CheckCircle size={20} />
-          Message sent successfully! I'll get back to you soon.
+          Message sent successfully! I&apos;ll get back to you soon.
         </Toast>
       )}
       

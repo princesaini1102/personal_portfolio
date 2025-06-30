@@ -35,6 +35,7 @@ export const darkTheme = {
     warning: '#FBBF24',
   },
   gradients: {
+    heading: 'linear-gradient(90deg, #60A5FA, #34D399)',
     primary: 'linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%)',
     secondary: 'linear-gradient(135deg, #FBBF24 0%, #F87171 100%)',
     hero: 'linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%)',
